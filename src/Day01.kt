@@ -1,17 +1,18 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    val data = readInput("day1")
+
+    fun maxCalories(list: List<String>): Int {
+        var total = 0
+        return mutableListOf(0).apply {
+            list.forEach { calorie ->
+                if (calorie.isBlank()) {
+                    this.add(total)
+                    total = 0
+                } else {
+                    total += calorie.toInt()
+                }
+            }
+        }.max()
     }
-
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
-
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    println(maxCalories(data))
 }
