@@ -3,7 +3,7 @@ package day01
 import readInput
 
 fun main() {
-    val data = readInput("day01/temp")
+    val data = readInput("day01/day1_data")
     fun maxCalories(list: List<String>): Int {
         var total = 0
         return mutableListOf(0).apply {
