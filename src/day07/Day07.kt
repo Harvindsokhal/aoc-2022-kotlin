@@ -28,11 +28,9 @@ fun main() {
                 !line.contains("$") -> current.files.add(File(line.substringBefore(" ").toInt()))
             }
         }
-
         return outermost
     }
     val outermostDirectory = prepareTree()
-
 
     fun solvePart1() = outermostDirectory.allDirs().map { it.size() }.filter { it < 100_000 }.sum()
     fun solvePart2(): Int {
